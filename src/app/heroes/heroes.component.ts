@@ -25,7 +25,7 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
 /*     this.heroes = this.heroService.getHeroes();  MUUTETTU OSASSA 4. */  
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+    this.heroService.getHeroes().subscribe((heroes: Hero[]) => this.heroes = heroes);
   }
 
 /*   hero: Hero = {
@@ -35,7 +35,7 @@ export class HeroesComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) {return;}
-    this.heroService.addHero({ name } as Hero).subscribe(hero => {this.heroes.push(hero);});
+    this.heroService.addHero({ name } as Hero).subscribe((hero: Hero) => {this.heroes.push(hero);});
   }
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
